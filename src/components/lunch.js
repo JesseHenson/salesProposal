@@ -7,6 +7,7 @@ import {
   CardContent,
   CardActions,
   CardHeader,
+  Grid,
 } from "@material-ui/core"
 import { lunchList, peopleList } from "../data/LunchList"
 
@@ -16,6 +17,7 @@ const LunchGenerator = () => {
   )
 
   const [personItem, setPersonItem] = useState("")
+  const [showList, setShowList] = useState(true)
 
   const handleLunchChange = () => {
     setLunchItem(lunchList[Math.floor(Math.random() * lunchList.length)].name)
@@ -29,23 +31,49 @@ const LunchGenerator = () => {
     setLunchItem(lunchList[Math.floor(Math.random() * lunchList.length)].name)
   }
 
+  const handleShowList = () => {
+    setShowList(!showList)
+  }
+
   return (
     <Box m={6}>
-      <Card>
-        <CardHeader title={lunchItem} subheader={personItem}></CardHeader>
-        <CardActions>
-          <Button
-            onClick={handleLunchChange}
-            color="primary"
-            variant="contained"
-          >
-            Change Lunch Item
-          </Button>
-          <Button onClick={handlePNPChange} color="primary" variant="contained">
-            Pick and Pick
-          </Button>
-        </CardActions>
-      </Card>
+      <Grid container direction="column" spacing={6}>
+        <Grid item>
+          <Card>
+            <CardHeader title={lunchItem} subheader={personItem}></CardHeader>
+            <CardActions>
+              <Button
+                onClick={handleLunchChange}
+                color="primary"
+                variant="contained"
+              >
+                Change Lunch Item
+              </Button>
+              <Button
+                onClick={handlePNPChange}
+                color="primary"
+                variant="contained"
+              >
+                Pick and Pick
+              </Button>
+              <Button
+                onClick={handleShowList}
+                color="primary"
+                variant="contained"
+              >
+                Show Lunch List
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card hidden={showList}>
+            {lunchList.map(rest => (
+              <Typography paragraph>{rest.name}</Typography>
+            ))}
+          </Card>
+        </Grid>
+      </Grid>
     </Box>
   )
 }
