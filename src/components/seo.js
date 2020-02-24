@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import "typeface-roboto"
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -68,7 +69,21 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      />
+
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+      </style>
+    </Helmet>
   )
 }
 
