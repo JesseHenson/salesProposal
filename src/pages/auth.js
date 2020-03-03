@@ -6,7 +6,7 @@ import IdentityModal, {
 import "react-netlify-identity-widget/styles.css"
 
 function App() {
-  const url = "https://sales-proposal-staffscapes.netlify.com/auth" // supply the url of your Netlify site instance. VERY IMPORTANT. no point putting in env var since this is public anyway
+  const url = "https://sales-proposal-staffscapes.netlify.com" // supply the url of your Netlify site instance. VERY IMPORTANT. no point putting in env var since this is public anyway
   return (
     <IdentityContextProvider url={url}>
       <AuthStatusView />
