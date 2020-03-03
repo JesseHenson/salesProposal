@@ -1,10 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Sales Proposal`,
+    description: `All the information you need in one place`,
+    author: `Jesse-dev`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-netlify-identity`,
+      options: {
+        url: `https://your-identity-instance-here.netlify.com/`, // required!
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-material-ui`,
     {

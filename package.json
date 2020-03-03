@@ -8,10 +8,14 @@
     "@material-ui/core": "^4.9.4",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.0",
+    "@reach/dialog": "^0.8.5",
+    "@reach/tabs": "^0.8.5",
+    "@reach/visually-hidden": "^0.8.2",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-material-ui": "^2.1.6",
+    "gatsby-plugin-netlify-identity": "^0.0.3",
     "gatsby-plugin-offline": "^3.0.32",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sharp": "^2.4.3",
@@ -21,6 +25,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-netlify-identity-widget": "^0.2.7",
     "typeface-roboto": "^0.0.75"
   },
   "devDependencies": {
