@@ -6,7 +6,7 @@ import IdentityModal, {
 import "react-netlify-identity-widget/styles.css"
 
 function App() {
-  const url = "https://sales-proposal-staffscapes.netlify.com/" // supply the url of your Netlify site instance. VERY IMPORTANT. no point putting in env var since this is public anyway
+  const url = "https://sales-proposal-staffscapes.netlify.com/auth" // supply the url of your Netlify site instance. VERY IMPORTANT. no point putting in env var since this is public anyway
   return (
     <IdentityContextProvider url={url}>
       <AuthStatusView />
@@ -22,7 +22,7 @@ function AuthStatusView() {
     (identity &&
       identity.user &&
       identity.user.user_metadata &&
-      identity.user.user_metadata.name) ||
+      identity.user.user_metadata.full_name) ||
     "NoName"
   const isLoggedIn = identity && identity.isLoggedIn
   return (
@@ -32,6 +32,12 @@ function AuthStatusView() {
           {isLoggedIn ? `Hello ${name}, Log out here!` : "Log In"}
         </button>
       </div>
+      {isLoggedIn ? (
+        <pre>{JSON.stringify(identity, null, 2)}</pre>
+      ) : (
+        "Please Log In"
+      )}
+
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
