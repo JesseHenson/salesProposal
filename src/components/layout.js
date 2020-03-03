@@ -10,7 +10,9 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const identity = useIdentityContext()
+  const identity = useIdentityContext(
+    "https://sales-proposal-staffscapes.netlify.com"
+  )
   const [dialog, setDialog] = React.useState(false)
   const name =
     (identity &&
